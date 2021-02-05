@@ -3,31 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Serie;
 
 class SeriesController extends Controller {
-    public function __invoke()
-    {
-        $series = [
-            'Desencanto',
-            'Lupin',
-            'Breaking Bad'
-        ];
-        echo "<ul>";
-        foreach ($series as $series) {
-            echo "<li>$series</li>";
-        }
-        echo "</ul>";
+    public function __invoke() {
+        $series = Serie::all();
+        // var_dump($series);
+        // exit();
+        return view('series.index', compact('series'));
     }
-    function listarSeries(){
-        $series = [
-            'Desencanto',
-            'Lupin',
-            'Breaking Bad'
-        ];
-        echo "<ul>";
-        foreach ($series as $series) {
-            echo "<li>$series</li>";
-        }
-        echo "</ul>";
+    public function create() {
+        return view('series.create');
+    }
+    public function store(Request $request) {
+        $serie = Serie::create($request->all);
     }
 }
