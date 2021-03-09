@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/series', SeriesController::class);
 Route::get('/series/create', [SeriesController::class, 'create']);
 Route::post('/series/create', [SeriesController::class, 'store']);
+Route::delete('/series/{id}', [SeriesController::class, 'destroy']);

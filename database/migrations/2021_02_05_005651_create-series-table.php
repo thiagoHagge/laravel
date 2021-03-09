@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableSeries extends Migration
+class CreateSeriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class CreateTableSeries extends Migration
     public function up()
     {
         Schema::create('series', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
         });
     }
